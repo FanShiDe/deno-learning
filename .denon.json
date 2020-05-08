@@ -1,0 +1,37 @@
+{
+  "files": [
+    "./example/server.ts"
+  ],
+  "quiet": false,
+  "debug": true,
+  "fullscreen": true,
+  "extensions": [
+    ".js",
+    ".ts",
+    ".py",
+    ".json"
+  ],
+  "interval": 500,
+  "watch": [
+    "./"
+  ],
+  "deno_args": [
+    "--allow-net",
+    "--import-map=import-map.json"
+  ],
+  "execute": {
+    ".js": [
+      "deno",
+      "run"
+    ],
+    ".ts": [
+      "deno",
+      "run"
+    ],
+    ".py": [
+      "python"
+    ]
+  },
+  "fmt": false,
+  "test": true
+}
