@@ -1,6 +1,32 @@
-# Deno Learning
+# Deno
 
-> Personal learning and practice of deno
+> A secure runtime for JavaScript and TypeScript
+
+## Introduction & Comparison
+
+Deno is a simple, modern and secure runtime for JavaScript and TypeScript that uses V8 and is built in Rust.
+
+### Difference with Node.js
+
+* Node.js is written in C++; Deno is written in Rust
+
+* Event-Loop: Node.js use libuv; Deno use [Tokio library](https://github.com/tokio-rs/tokio)
+
+* The dependency manager: Node.js use package.json and NPM
+
+* Dependency folder: Deno use global cache folder(~/.deno/src by default, also can be changed by setting DENO_DIR); Node.js use node_modules in every project
+
+* import module: Deno support ES Moudule syntax, Node.js use requre() which is CommonJS syntax; Deno need to specify ext
+
+* specific permissions, security
+
+* GYP
+
+* One delivrable, one executable: deno bundle, deno compile
+
+* ecosystem
+
+[10 Things I Regret About Node.js](https://www.youtube.com/watch?v=M3BM9TB-8yA)
 
 ## Setup
 
@@ -93,11 +119,21 @@ Finally, run in watching mode
 denon -c {configuration file path}
 ```
 
-## Import Module
+## Library
+
+* [Standard Library](https://github.com/denoland/deno/tree/master/std)
+A standard set of high quality code, which are reviewed by the Deno core team
+
+* [Third Party Library](https://deno.land/x#info)
+
+* Custom Local library
+
+### Import Module
 
 * Import statements can make use of URLs
 
-  ```txt
+  ```typescript
+  # standard library
   https://deno.land/std/<PATH_TO_MODULE>.ts
   https://deno.land/std@{VERSION}/<PATH_TO_MODULE>.ts
   ```
@@ -111,3 +147,16 @@ This will run all files in the working directory that end in `_test` or `.test` 
 ```shell
 deno test
 ```
+
+## Conclusion
+
+Deno successfully removes many of the drawbacks from JavaScript development
+
+Hope it's a better Node.js
+
+It may not com replace Node.js
+
+## Reference
+
+https://blog.logrocket.com/deno-1-0-what-you-need-to-know/
+https://www.infoq.cn/article/U72qTZtGaZTTFAzZiHbZ

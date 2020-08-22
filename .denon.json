@@ -1,6 +1,7 @@
 {
   "files": [
-    "./example/server.ts"
+    "./example/server.ts",
+    "./example/static_server.ts"
   ],
   "quiet": false,
   "debug": true,
@@ -17,8 +18,19 @@
   ],
   "deno_args": [
     "--allow-net",
+    "--allow-read",
     "--import-map=import-map.json"
   ],
+  "scripts": {
+    "start_static": {
+      "cmd": "./example/static_server.ts",
+      "desc": "run static server"
+    },
+    "start": {
+      "cmd": "./example/server.ts",
+      "desc": "run server"
+    }
+  },
   "execute": {
     ".js": [
       "deno",
@@ -32,6 +44,11 @@
       "python"
     ]
   },
+  "allow": [
+    "net",
+    "read"
+  ],
   "fmt": false,
+  "unstable": true,
   "test": true
 }
