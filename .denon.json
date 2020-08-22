@@ -29,6 +29,10 @@
     "start": {
       "cmd": "./example/server.ts",
       "desc": "run server"
+    },
+    "test": {
+      "cmd": "deno test",
+      "desc": "exec test"
     }
   },
   "execute": {
