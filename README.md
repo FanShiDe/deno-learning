@@ -14,7 +14,7 @@ Deno is a simple, modern and secure runtime for JavaScript and TypeScript that u
 
 * The dependency manager: Node.js use package.json and NPM
 
-* Dependency folder: Deno use global cache folder(~/.deno/src by default, also can be changed by setting DENO_DIR); Node.js use node_modules in every project
+* Dependency folder: Deno use global cache folder(It defaults to the system's cache directory, also can be specified by DENO_DIR); Node.js use node_modules in every project
 
 * import module: Deno support ES Moudule syntax, Node.js use requre() which is CommonJS syntax; Deno need to specify ext
 
