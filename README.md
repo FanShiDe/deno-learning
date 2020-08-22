@@ -26,7 +26,31 @@ Deno is a simple, modern and secure runtime for JavaScript and TypeScript that u
 
 * ecosystem
 
+* Deno is compatible with Browser
+
+* Deno provides built-in tooling like unit testing, code formatting, and linting to improve developer experience.
+
 [10 Things I Regret About Node.js](https://www.youtube.com/watch?v=M3BM9TB-8yA)
+
+### Benchmark
+
+* 100 concurrent connections
+
+|Name|version|AVG req/sec|
+|---|---|---|---|
+|node.http|12.16.3|47969.2|
+|deno.http|1.0.0|47376|
+|deno.http|1.1.0|46953.7|
+|node.http|14.2.0|44409|
+
+* 10 concurrent connections
+
+|Name|version|AVG req/sec|
+|---|---|---|---
+|node.http|12.16.3|49926.69|
+|node.http|14.2.0|45345.33|
+|deno.http|1.1.0|34806.79|
+|deno.http|1.0.0|34742.37|
 
 ## Setup
 
@@ -76,7 +100,8 @@ Then, touch a local configuration files for denon
 ```json
 {
   "files": [
-    "server.ts"
+    "./example/server.ts",
+    "./example/static_server.ts"
   ],
   "quiet": false,
   "debug": true,
@@ -93,8 +118,23 @@ Then, touch a local configuration files for denon
   ],
   "deno_args": [
     "--allow-net",
+    "--allow-read",
     "--import-map=import-map.json"
   ],
+  "scripts": {
+    "start_static": {
+      "cmd": "./example/static_server.ts",
+      "desc": "run static server"
+    },
+    "start": {
+      "cmd": "./example/server.ts",
+      "desc": "run server"
+    },
+    "test": {
+      "cmd": "deno test",
+      "desc": "exec test"
+    }
+  },
   "execute": {
     ".js": [
       "deno",
@@ -108,7 +148,12 @@ Then, touch a local configuration files for denon
       "python"
     ]
   },
+  "allow": [
+    "net",
+    "read"
+  ],
   "fmt": false,
+  "unstable": true,
   "test": true
 }
 ```
@@ -150,7 +195,7 @@ deno test
 
 ## Conclusion
 
-Deno successfully removes many of the drawbacks from JavaScript development
+Deno successfully removes many of the drawbacks from Node.js development
 
 Hope it's a better Node.js
 
@@ -158,5 +203,10 @@ It may not com replace Node.js
 
 ## Reference
 
-https://blog.logrocket.com/deno-1-0-what-you-need-to-know/
-https://www.infoq.cn/article/U72qTZtGaZTTFAzZiHbZ
+[Deno 1.0: What you need to know](https://blog.logrocket.com/deno-1-0-what-you-need-to-know/)
+
+[Deno, first approach](https://dev.to/lsagetlethias/deno-first-approach-4d0)
+
+[Deno 内部代码将停用 TypeScript，并公布五项具体理由](https://www.infoq.cn/article/U72qTZtGaZTTFAzZiHbZ)
+
+[Performance aspect of Deno vs. Node](https://dev.to/gjuoun/perfomance-aspect-of-deno-vs-node-js-4dke)
